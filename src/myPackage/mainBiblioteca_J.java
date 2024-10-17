@@ -2,7 +2,6 @@ package myPackage;
 
 import java.time.LocalDate;
 
-
 // Classe myPackage.mainBiblioteca_J per testare il sistema della biblioteca con ricerca per ISBN
 public class mainBiblioteca_J {
     public static void main(String[] args) {
@@ -15,8 +14,8 @@ public class mainBiblioteca_J {
         biblioteca.aggiungiLibro(libro2);
 
         // Creiamo delle persone
-        Persona persona1 = new Persona("Mario", "Rossi", "P001");
-        Persona persona2 = new Persona("Luca", "Bianchi", "P002");
+        Persona persona1 = new Persona(1,"Mario", "Rossi", 40);
+        Persona persona2 = new Persona(2,"Luca", "Bianchi", 49 );
 
         // Prestiamo un libro con data inizio e fine
         LocalDate oggi = LocalDate.now();
@@ -56,5 +55,7 @@ public class mainBiblioteca_J {
         for (Prestito prestito : biblioteca.elencaPrestiti()) {
             System.out.println(prestito);
         }
+
+        persona2.mostraScheda();
     }
 }

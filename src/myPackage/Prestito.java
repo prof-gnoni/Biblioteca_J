@@ -18,28 +18,28 @@ class Prestito {
 
     // Getter
     public Libro getLibro() {
-        return libro;
+        return this.libro;
     }
 
     public Persona getPersona() {
-        return persona;
+        return this.persona;
     }
 
     public LocalDate getDataInizio() {
-        return dataInizio;
+        return this.dataInizio;
     }
 
     public LocalDate getDataFine() {
-        return dataFine;
+        return this.dataFine;
     }
 
     @Override
     public String toString() {
-        return "myPackage.Prestito{" +
+        return "myPackage.Prestito {" +
                 "libro=" + libro.getTitolo() +
                 ", persona=" + persona.getNome() + " " + persona.getCognome() +
-                ", dataInizio=" + dataInizio +
-                ", dataFine=" + dataFine +
+                ", dataInizio=" + this.dataInizio +
+                ", dataFine=" + this.dataFine +
                 '}';
     }
 }

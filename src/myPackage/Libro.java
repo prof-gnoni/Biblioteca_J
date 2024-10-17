@@ -2,10 +2,17 @@ package myPackage;
 
 // class myPackage.Libro
 class Libro {
+    private String isbn;
     private String titolo;
     private String autore;
-    private String isbn;
     private boolean disponibile;
+
+    public Libro() {
+        this.isbn = "";
+        this.titolo = "";
+        this.autore = "";
+        this.disponibile = false;
+    }
 
     public Libro(String titolo, String autore, String isbn) {
         this.titolo = titolo;
@@ -14,21 +21,32 @@ class Libro {
         this.disponibile = true;
     }
 
-    // Getter e Setter
+    public String getIsbn() {
+        return this.isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public String getTitolo() {
-        return titolo;
+        return this.titolo;
+    }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
     }
 
     public String getAutore() {
-        return autore;
+        return this.autore;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public void setAutore(String autore) {
+        this.autore = autore;
     }
 
     public boolean isDisponibile() {
-        return disponibile;
+        return this.disponibile;
     }
 
     public void setDisponibile(boolean disponibile) {
@@ -37,7 +55,7 @@ class Libro {
 
     @Override
     public String toString() {
-        return "Libro{" +
+        return "Libro {" +
                 "titolo='" + titolo + '\'' +
                 ", autore='" + autore + '\'' +
                 ", isbn='" + isbn + '\'' +
