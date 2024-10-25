@@ -1,12 +1,14 @@
 package myPackage;
 
 import java.time.LocalDate;
-
+// https://www.digitalocean.com/community/tutorials/java-simpledateformat-java-date-format
 
 // Classe myPackage.mainBiblioteca_J per testare il sistema della biblioteca con ricerca per ISBN
 public class mainBiblioteca_J {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
+
+        int puntoElenco;
 
         // Aggiungiamo dei libri alla biblioteca
         Libro libro1 = new Libro("Il Signore degli Anelli", "J.R.R. Tolkien", "1234567890");
@@ -18,23 +20,28 @@ public class mainBiblioteca_J {
         Persona persona1 = new Persona("Mario", "Rossi", "P001");
         Persona persona2 = new Persona("Luca", "Bianchi", "P002");
 
+        biblioteca.visualizzaCatalogo();
+        System.out.println();
+
         // Prestiamo un libro con data inizio e fine
         LocalDate oggi = LocalDate.now();
         LocalDate finePrestito = oggi.plusDays(14); // myPackage.Prestito di 14 giorni
 
         if (biblioteca.effettuaPrestito(libro1, persona1, oggi, finePrestito)) {
             System.out.println(persona1.getNome() + " ha preso in prestito " +
-                    libro1.getTitolo() + " dal " + oggi + " al " + finePrestito
+                    libro1.getTitolo() + " dal " + oggi.format(Settings.dataItaliana) + " al " +
+                    finePrestito.format(Settings.dataItaliana)
             );
         } else {
             System.out.println("Il libro non è disponibile.");
         }
-
-        // Elenco dei libri disponibili
-        System.out.println("Libri disponibili:");
-        for (Libro libro : biblioteca.elencaLibriDisponibili()) {
-            System.out.println(libro.getTitolo());
-        }
+        System.out.println();
+        biblioteca.visualizzaCatalogo();
+        System.out.println();
+        biblioteca.visualizzaLibriDisponibili();
+        System.out.println();
+        biblioteca.visualizzaPrestiti();
+        System.out.println();
 
         // Restituiamo un libro
         if (biblioteca.restituisciLibro(libro1)) {
@@ -42,19 +49,22 @@ public class mainBiblioteca_J {
         } else {
             System.out.println("Errore nella restituzione.");
         }
+        System.out.println();
+
+        biblioteca.visualizzaCatalogo();
+        System.out.println();
+        biblioteca.visualizzaLibriDisponibili();
+        System.out.println();
+        biblioteca.visualizzaPrestiti();
+        System.out.println();
 
         // Ricerca di un libro per ISBN
         Libro libroRicercato = biblioteca.cercaLibroPerIsbn("0987654321");
-        if (libroRicercato != null) {
+        if ( libroRicercato != null ) {
             System.out.println("Libro trovato: " + libroRicercato.getTitolo());
         } else {
             System.out.println("Libro non trovato.");
         }
-
-        // Elenco dei prestiti attuali
-        System.out.println("Prestiti attuali:");
-        for (Prestito prestito : biblioteca.elencaPrestiti()) {
-            System.out.println(prestito);
-        }
+        System.out.println();
     }
 }

@@ -35,11 +35,12 @@ class Prestito {
 
     @Override
     public String toString() {
-        return "myPackage.Prestito{" +
-                "libro=" + libro.getTitolo() +
-                ", persona=" + persona.getNome() + " " + persona.getCognome() +
-                ", dataInizio=" + dataInizio +
-                ", dataFine=" + dataFine +
+        return "{" +
+                "isbn: " + libro.getIsbn() +
+                ", titolo: " + libro.getTitolo() +
+                ", persona: " + persona.getNome() + " " + persona.getCognome() +
+                ", data Inizio: " + dataInizio.format(Settings.dataItaliana ) +
+                ", data Fine: " + dataFine.format(Settings.dataItaliana) +
                 '}';
     }
 }

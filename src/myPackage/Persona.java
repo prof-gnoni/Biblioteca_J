@@ -27,18 +27,18 @@ class Persona {
 
     @Override
     public String toString() {
-        return "myPackage.Persona {" +
-                "nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", id='" + id + '\'' +
+        return "{" +
+                "nome: '" + nome + '\'' +
+                ", cognome: '" + cognome + '\'' +
+                ", id: '" + id + '\'' +
                 '}';
     }
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if ( this == obj ) {
             return true; // Se è lo stesso oggetto, sono uguali
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if ( obj == null || ( this.getClass() != obj.getClass() ) ) {
             return false; // Se l'oggetto è nullo o non è della stessa classe, non sono uguali
         }
         Persona altraPersona = (Persona) obj;

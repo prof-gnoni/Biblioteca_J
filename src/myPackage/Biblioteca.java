@@ -62,7 +62,7 @@ class Biblioteca {
     }
 
     // Elenca i libri disponibili
-    public List<Libro> elencaLibriDisponibili() {
+    public List<Libro> listaLibriDisponibili() {
         List<Libro> disponibili = new ArrayList<>();
         for (Libro libro : libri) {
             if (libro.isDisponibile()) {
@@ -73,7 +73,55 @@ class Biblioteca {
     }
 
     // Elenca tutti i prestiti
-    public List<Prestito> elencaPrestiti() {
+    public List<Prestito> listaPrestiti() {
         return prestiti;
+    }
+
+    public List<Libro> catalogoLibri() {
+        return libri;
+    }
+
+    public void visualizzaCatalogo() {
+        int puntoElenco = 0;
+        List<Libro> catalogo = catalogoLibri();
+        if( !catalogo.isEmpty() ) {
+            System.out.println("Libri in catalogo:");
+            for (Libro libro : catalogo) {
+                puntoElenco++;
+                System.out.println("\t" + puntoElenco + "\t" + libro.getTitolo());
+                System.out.println("\t\t" + libro);
+            }
+        } else {
+            System.out.println("Attualmente, il nostro catalogo è vuoto.");
+        }
+    }
+
+    public void visualizzaPrestiti() {
+        int puntoElenco = 0;
+        List<Prestito> prestiti = listaPrestiti();
+        if( !prestiti.isEmpty() ) {
+            System.out.println("Prestiti attuali:");
+            for (Prestito prestito : prestiti) {
+                puntoElenco++;
+                System.out.println("\t" + puntoElenco + "\t" + prestito);
+            }
+        } else {
+            System.out.println("Non ci sono prestiti in corso.");
+        }
+    }
+
+    public void visualizzaLibriDisponibili() {
+        // Elenco dei libri disponibili
+        int puntoElenco = 0;
+        if( !this.listaLibriDisponibili().isEmpty() ) {
+            System.out.println("Libri disponibili:");
+            for (Libro libro : this.listaLibriDisponibili()) {
+                puntoElenco++;
+                System.out.println("\t" + puntoElenco + "\t" + libro.getTitolo());
+                System.out.println("\t\t" + libro);
+            }
+        } else {
+            System.out.println("Attualmente, non ci sono libri disponibili.");
+        }
     }
 }
