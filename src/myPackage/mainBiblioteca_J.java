@@ -17,8 +17,8 @@ public class mainBiblioteca_J {
         biblioteca.aggiungiLibro(libro2);
 
         // Creiamo delle persone
-        Persona persona1 = new Persona("Mario", "Rossi", "P001");
-        Persona persona2 = new Persona("Luca", "Bianchi", "P002");
+        Persona persona1 = new Persona(1,"Mario", "Rossi", 49);
+        Persona persona2 = new Persona(2,"Luca", "Bianchi", 39);
 
         biblioteca.visualizzaCatalogo();
         System.out.println();
