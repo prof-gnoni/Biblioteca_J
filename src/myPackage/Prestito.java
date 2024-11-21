@@ -3,11 +3,18 @@ package myPackage;
 import java.time.LocalDate;
 
 // Classe myPackage.Prestito con gestione delle date
-class Prestito {
+public class Prestito {
     private Libro libro;
     private Persona persona;
     private LocalDate dataInizio;
     private LocalDate dataFine;
+
+    public Prestito() {
+        libro = new Libro();
+        persona = new Persona();
+        dataInizio = LocalDate.of(0,0,0);
+        dataFine = LocalDate.of(0,0,0);
+    }
 
     public Prestito(Libro libro, Persona persona, LocalDate dataInizio, LocalDate dataFine) {
         this.libro = libro;
@@ -43,4 +50,9 @@ class Prestito {
                 ", data Fine: " + dataFine.format(Settings.dataItaliana) +
                 '}';
     }
+
+    public void visualizza() {
+        System.out.println(toString());
+    }
+
 }

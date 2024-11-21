@@ -1,11 +1,18 @@
 package myPackage;
 
 // Classe myPackage.Persona
-class Persona {
+public class Persona {
     private int id;
     private String nome;
     private String cognome;
     private int eta;
+
+    public Persona() {
+        id = -1;
+        nome = "";
+        cognome = "";
+        eta = -1;
+    }
 
     public Persona(int id, String nome, String cognome, int eta ) {
         this.id = id;
@@ -72,35 +79,35 @@ class Persona {
 
     public void mostraScheda() {
         // Metodo per creare una scheda boxata
-            StringBuilder box = new StringBuilder();
-            String[] data = {
-                    "Nome: " + nome,
-                    "Cognome: " + cognome,
-                    "Età: " + eta
-            };
-            int maxLength = getMaxLength(data) + 2; // Spazio per margini laterali
+        StringBuilder box = new StringBuilder();
+        String[] data = {
+                "Nome: " + nome,
+                "Cognome: " + cognome,
+                "Età: " + eta
+        };
+        int maxLength = getMaxLength(data) + 2; // Spazio per margini laterali
 
-            // Linea superiore della griglia
-            box.append("╔").append(repeatChar('═', maxLength)).append("╗\n");
+        // Linea superiore della griglia
+        box.append("╔").append(repeatChar('═', maxLength)).append("╗\n");
 
-            // Riga per ogni dato con separazioni
-            for (int i = 0; i < data.length; i++) {
-                // Dato corrente
-                String line = data[i];
-                box.append("║ ").append(padRight(line, maxLength - 2)).append(" ║\n");
+        // Riga per ogni dato con separazioni
+        for (int i = 0; i < data.length; i++) {
+            // Dato corrente
+            String line = data[i];
+            box.append("║ ").append(padRight(line, maxLength - 2)).append(" ║\n");
 
-                // Linea di separazione tra le celle (tranne dopo l'ultima)
-                if (i < data.length - 1) {
-                    box.append("╠").append(repeatChar('═', maxLength)).append("╣\n");
-                }
+            // Linea di separazione tra le celle (tranne dopo l'ultima)
+            if (i < data.length - 1) {
+                box.append("╠").append(repeatChar('═', maxLength)).append("╣\n");
             }
-
-            // Linea inferiore della griglia
-            box.append("╚").append(repeatChar('═', maxLength)).append("╝");
-
-            // Stampa la scheda boxata
-            System.out.println(box.toString());
         }
+
+        // Linea inferiore della griglia
+        box.append("╚").append(repeatChar('═', maxLength)).append("╝");
+
+        // Stampa la scheda boxata
+        System.out.println(box.toString());
+    }
 
     // Metodo per calcolare la lunghezza massima delle stringhe
     private int getMaxLength(String[] lines) {

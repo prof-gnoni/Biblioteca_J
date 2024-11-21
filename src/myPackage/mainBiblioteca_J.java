@@ -1,7 +1,6 @@
 package myPackage;
 
 import java.time.LocalDate;
-// https://www.digitalocean.com/community/tutorials/java-simpledateformat-java-date-format
 
 // Classe myPackage.mainBiblioteca_J per testare il sistema della biblioteca con ricerca per ISBN
 public class mainBiblioteca_J {

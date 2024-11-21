@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Classe myPackage.Biblioteca per gestire il prestito, la ricerca e la disponibilità dei libri
-class Biblioteca {
+public class Biblioteca {
     private List<Libro> libri;
     private List<Prestito> prestiti;
 
@@ -17,6 +17,10 @@ class Biblioteca {
     // Aggiunge un libro alla biblioteca
     public void aggiungiLibro(Libro libro) {
         libri.add(libro);
+    }
+
+    public void eliminaLibro(Libro libro) {
+        libri.remove(libro);
     }
 
     // Cerca un libro per titolo
